@@ -6,17 +6,15 @@ namespace SinglyLinkedList
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var linkedList = new SinglyLinkedList<string>("first");
-            linkedList.AddToEnd("second");
-            linkedList.AddToEnd("third");
+            linkedList.Append("second");
+            linkedList.Append("third");
             linkedList.Push("zero");
 
-            foreach(var data in linkedList)
-            {
-                Console.WriteLine(data);
-            }
+            foreach (var value in linkedList)
+                Console.WriteLine(value);
 
             Console.WriteLine("Count - " + linkedList.Count);
 
@@ -25,12 +23,10 @@ namespace SinglyLinkedList
             linkedList.Push("second");
             linkedList.InsertAfter("second", "second at half");
             linkedList.Push("first");
-            linkedList.AddToEnd("fourth");
+            linkedList.Append("fourth");
 
-            foreach (var data in linkedList)
-            {
-                Console.WriteLine(data);
-            }
+            foreach (var value in linkedList)
+                Console.WriteLine(value);
 
             Console.WriteLine("Count - " + linkedList.Count);
 
@@ -42,26 +38,23 @@ namespace SinglyLinkedList
     {
         public SinglyLinkedList() { }
 
-        public SinglyLinkedList(T data)
-        {
-            AddToEnd(data);
-        }
+        public SinglyLinkedList(T data) =>
+            Append(data);
 
-        private LinkedNode<T> Head { get; set; }
-
-        private LinkedNode<T> Tail { get; set; }
+        private LinkedNode<T> _head;
+        private LinkedNode<T> _tail;
 
         public int Count { get; private set; }
 
-        public bool InsertAfter(T prevNode, T newData)
+        public bool InsertAfter(T previousValue, T value)
         {
-            var current = Head;
-            while(current != null)
+            var current = _head;
+            while (current != null)
             {
-                if (current.Data.Equals(prevNode))
+                if (current.Value.Equals(previousValue))
                 {
                     var aftetCurrentNode = current.Next;
-                    current.Next = new LinkedNode<T>(newData);
+                    current.Next = new LinkedNode<T>(value);
                     current.Next.Next = aftetCurrentNode;
                     Count++;
                     return true;
@@ -71,63 +64,65 @@ namespace SinglyLinkedList
             return false;
         }
 
-        public void Push(T data)
+        public void Push(T value)
         {
-            if (Head == null)
+            if (_head == null)
             {
-                Head = new LinkedNode<T>(data);
-                Tail = Head;
+                _head = new LinkedNode<T>(value);
+                _tail = _head;
             }
             else
             {
-                var previousHead = Head;
-                Head = new LinkedNode<T>(data);
-                Head.Next = previousHead;
+                var previousHead = _head;
+                _head = new LinkedNode<T>(value);
+                _head.Next = previousHead;
             }
             Count++;
         }
 
-        public void AddToEnd(T data) 
+        public void Append(T value)
         {
-            if (Head == null)
+            if (_head == null)
             {
-                Head = new LinkedNode<T>(data);
-                Tail = Head;
+                _head = new LinkedNode<T>(value);
+                _tail = _head;
             }
             else
             {
-                var newNode = new LinkedNode<T>(data);
-                Tail.Next = newNode;
-                Tail = newNode;
+                var newNode = new LinkedNode<T>(value);
+                _tail.Next = newNode;
+                _tail = newNode;
             }
+
             Count++;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            var node = Head;
+            var node = _head;
             while (node != null)
             {
-                yield return node.Data;
+                yield return node.Value;
                 node = node.Next;
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => 
+            GetEnumerator();
     }
 
     class LinkedNode<T>
     {
-        public T Data { get; set; }
+        public T Value { get; private set; }
 
         public LinkedNode<T> Next { get; set; }
 
-        public LinkedNode(T data, LinkedNode<T> next)
+        public LinkedNode(T value, LinkedNode<T> next)
         {
-            Data = data;
+            Value = value;
             Next = next;
         }
 
-        public LinkedNode(T data) : this(data, null) { }
+        public LinkedNode(T value) : this(value, null) { }
     }
 }

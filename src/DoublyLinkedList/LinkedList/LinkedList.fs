@@ -23,8 +23,8 @@ let mkLinkedList () =
 
 let private addToEmptyList value list = 
     let node = Some { value = value; 
-                      next = None; 
-                      prev = None}
+                      next  = None; 
+                      prev  = None }
     list.head  <- node
     list.tail  <- node
     list.count <- 1
@@ -38,6 +38,3 @@ let push value list =
                              prev  = None }
         list.head  <- newHead
         list.count <- list.count + 1
-        
-        
-

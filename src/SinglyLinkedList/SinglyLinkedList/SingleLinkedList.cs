@@ -2,43 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SinglyLinkedList
+namespace LinkedList
 {
-    class Program
+    public class SingleLinkedList<T> : IEnumerable<T>
     {
-        static void Main()
-        {
-            var linkedList = new SinglyLinkedList<string>("first");
-            linkedList.Append("second");
-            linkedList.Append("third");
-            linkedList.Push("zero");
+        public SingleLinkedList() { }
 
-            foreach (var value in linkedList)
-                Console.WriteLine(value);
-
-            Console.WriteLine("Count - " + linkedList.Count);
-
-            linkedList = new SinglyLinkedList<string>();
-            linkedList.Push("third");
-            linkedList.Push("second");
-            linkedList.InsertAfter("second", "second at half");
-            linkedList.Push("first");
-            linkedList.Append("fourth");
-
-            foreach (var value in linkedList)
-                Console.WriteLine(value);
-
-            Console.WriteLine("Count - " + linkedList.Count);
-
-            Console.ReadLine();
-        }
-    }
-
-    class SinglyLinkedList<T> : IEnumerable<T>
-    {
-        public SinglyLinkedList() { }
-
-        public SinglyLinkedList(T data) =>
+        public SingleLinkedList(T data) =>
             Append(data);
 
         private LinkedNode<T> _head;
@@ -97,6 +67,57 @@ namespace SinglyLinkedList
             Count++;
         }
 
+        public bool Remove(T value)
+        {
+            if (Count == 0) return false;
+
+            if (Count == 1)
+            {
+                if (_head.Value.Equals(value))
+                {
+                    _head = null;
+                    _tail = null;
+                    Count--;
+                    return true;
+                }
+
+                return false;
+            }
+
+            LinkedNode<T> previous = null;
+            var current = _head;
+            while (current != null)
+            {
+                if (current.Value.Equals(value))
+                {
+                    if (current == _head)
+                    {
+                        _head = _head.Next;
+                        Count--;
+                        return true;
+                    }
+
+                    if (current == _tail)
+                    {
+                        previous.Next = _tail = null;
+                        Count--;
+                        return true;
+                    }
+
+                    previous.Next = current.Next;
+                    Count--;
+                    return true;
+                }
+
+                previous = current;
+                current = current.Next;
+            }
+
+            return false;
+        }
+
+        public bool IsEmpty() => Count == 0;
+
         public IEnumerator<T> GetEnumerator()
         {
             var node = _head;
@@ -107,7 +128,7 @@ namespace SinglyLinkedList
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => 
+        IEnumerator IEnumerable.GetEnumerator() =>
             GetEnumerator();
     }
 

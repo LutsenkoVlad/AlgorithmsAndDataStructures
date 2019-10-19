@@ -38,3 +38,14 @@ let push value list =
                              prev  = None }
         list.head  <- newHead
         list.count <- list.count + 1
+
+let append value list = 
+    match list.tail with
+    | None      -> addToEmptyList value list
+    | Some tail ->
+        let newTail = Some { value = value;
+                             next  = None;
+                             prev  = Some tail }
+        tail.next  <- newTail
+        list.tail  <- newTail
+        list.count <- list.count + 1

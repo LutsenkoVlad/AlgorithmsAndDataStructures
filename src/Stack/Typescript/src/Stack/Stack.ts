@@ -3,10 +3,7 @@ export class Stack<T> {
     private count: number = 0;
 
     Push(data: T) {
-        this.top
-            ? (this.top = { data, next: this.top })
-            : (this.top = { data });
-
+        this.top = { data, next: this.top };
         this.count++;
     }
 

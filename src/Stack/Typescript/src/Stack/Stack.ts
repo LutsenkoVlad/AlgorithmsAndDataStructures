@@ -1,27 +1,22 @@
 export class Stack<T> {
-    private top: Node<T> | undefined;
+    private top?: Node<T>;
     private count: number = 0;
 
     Push(data: T) {
-        if (!this.top) {
-            this.top = { data, next: undefined };
-        } else {
-            let newTop = { data, next: this.top };
-            this.top = newTop;
-        }
+        this.top 
+            ? (this.top = { data, next: this.top })
+            : (this.top = { data });
 
         this.count++;
     }
 
     Pop() {
-        if (!this.top) {
-            return undefined;
-        } else {
-            let prevTop = this.top;
-            this.top = this.top.next;
-            this.count--;
-            return prevTop.data;
-        }
+        if (!this.top) return undefined;
+
+        let prevTopData = this.top.data;
+        this.top = this.top.next;
+        this.count--;
+        return prevTopData;
     }
 
     get Count() {
@@ -35,5 +30,5 @@ export class Stack<T> {
 
 type Node<T> = {
     data: T;
-    next: Node<T> | undefined;
+    next?: Node<T>;
 };

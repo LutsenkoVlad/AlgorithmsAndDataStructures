@@ -1,0 +1,46 @@
+{
+    "rules": {
+        "forin": true,
+        "curly": true,
+        "new-parens": true,
+        "label-position": true,
+        "unified-signatures": true,
+        "prefer-object-spread": true,
+        "quotemark": [
+            true,
+            "double"
+        ],
+        "arrow-return-shorthand": true,
+        "cyclomatic-complexity": [
+            true,
+            10
+        ],
+        "triple-equals": [
+            true,
+            "allow-undefined-check"
+        ],
+        "prefer-template": [
+            true,
+            "allow-single-concat"
+        ],
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-misused-new": true,
+        "no-mergeable-namespace": true,
+        "no-null-keyword": false,
+        "no-duplicate-super": true,
+        "no-non-null-assertion": true,
+        "no-internal-module": true,
+        "no-duplicate-switch-case": true,
+        "no-floating-promises": true,
+        "no-invalid-template-strings": true,
+        "no-trailing-whitespace": true,
+        "no-irregular-whitespace": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": true,
+        "no-duplicate-variable": [
+            true,
+            "check-parameters"
+        ]
+    }
+}

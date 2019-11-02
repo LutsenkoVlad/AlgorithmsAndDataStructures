@@ -29,4 +29,17 @@ describe("Stack", () => {
 
         expect(stack.Pop()).toEqual(5);
     });
+
+    it("should support for of", () => {
+        const values = [1, 2, 3, 4];
+        let index = 3;
+
+        values.forEach(x => stack.Push(x));
+
+        for (let item of stack) {
+            expect(item).toEqual(values[index--]);
+        }
+
+        expect(stack.Count).toEqual(values.length);
+    });
 });

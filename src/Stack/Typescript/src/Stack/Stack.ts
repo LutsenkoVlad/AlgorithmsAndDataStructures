@@ -16,6 +16,19 @@ export class Stack<T> {
         return prevTopData;
     }
 
+    *iterator(): IterableIterator<T> {
+        let current = this.top;
+
+        while(current) {
+            yield current.data;
+            current = current.next;
+        }
+    }
+
+    [Symbol.iterator]() {
+        return this.iterator();
+    }
+
     get Count() {
         return this.count;
     }

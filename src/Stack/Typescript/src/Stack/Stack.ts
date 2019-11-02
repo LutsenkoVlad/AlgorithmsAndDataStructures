@@ -13,7 +13,7 @@ export class Stack<T> {
     Pop() {
         if (!this.top) return undefined;
 
-        let prevTopData = this.top.data;
+        const prevTopData = this.top.data;
         this.top = this.top.next;
         this.count--;
         return prevTopData;

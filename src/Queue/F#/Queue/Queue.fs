@@ -5,8 +5,7 @@ type Queue<'T>() =
     let mutable _count : int = 0
 
     member this.Enqueue value =
-        let revList = List.rev _list
-        _list  <- List.rev (value :: revList)
+        _list <- List.append _list [value]
         _count <- _count + 1
 
     member this.Dequeue =

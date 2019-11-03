@@ -5,13 +5,14 @@ type Queue<'T>() =
     let mutable _count : int = 0
 
     member this.Enqueue value =
-        _list  <- _list :: value
+        let revList = List.rev _list
+        _list  <- List.rev (value :: revList)
         _count <- _count + 1
 
     member this.Dequeue =
-        match List.rev _list with
+        match _list with
         | result :: remainder -> 
-            _list  <- List.rev remainder
+            _list  <- remainder
             _count <- _count - 1
             result
         | [] -> failwith "Queue is empty"

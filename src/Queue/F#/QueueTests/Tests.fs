@@ -23,7 +23,7 @@ let ``IsEmpty = true if queue is empty`` () =
     Assert.Equal(true, queue.IsEmpty)
 
 [<Fact>]
-let ``Pop should give first addded emelent`` () =
+let ``Dequeue should give first addded emelent`` () =
     let queue = Queue<string>()
     let expected = "first"
 
@@ -48,7 +48,7 @@ let ``queue support for in`` () =
     Assert.Equal(values.Length, queue.Count)
 
 [<Fact>]
-let ``Pop should throw exception if stack is empty`` () =
+let ``Dequeue should throw exception if stack is empty`` () =
     let queue = Queue<string>()
 
     Assert.Throws<Exception>(fun () -> 

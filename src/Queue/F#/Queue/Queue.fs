@@ -1,7 +1,10 @@
 ﻿namespace DataStructures
 
+open System.Collections.Generic
+open System.Collections
+
 type Queue<'T>() =
-    let mutable _list  : List<'T> = []
+    let mutable _list  : Microsoft.FSharp.Collections.List<'T> = []
     let mutable _count : int = 0
 
     member this.Enqueue value =
@@ -20,7 +23,7 @@ type Queue<'T>() =
 
     member this.IsEmpty = _count = 0
 
-    interface System.Collections.Generic.IEnumerable<'T> with
+    interface IEnumerable<'T> with
         
         member this.GetEnumerator() = 
             let e = seq {
@@ -30,4 +33,4 @@ type Queue<'T>() =
 
         member this.GetEnumerator() =
             (this :> _ seq).GetEnumerator()
-            :> System.Collections.IEnumerator
+            :> IEnumerator

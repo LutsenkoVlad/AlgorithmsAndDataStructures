@@ -48,3 +48,41 @@ let ``IsEmpty = true if set is empty`` () =
     let set = Set<string>()
     
     Assert.Equal(true, set.IsEmpty)
+
+[<Fact>]
+let ``Union`` () =
+    let set = Set<int>()
+    set.Add 1
+    set.Add 3
+    set.Add 5
+    let set2 = Set<int>()
+    set2.Add 1
+    set2.Add 6
+    set2.Add 3
+    set2.Add 4
+
+    let set3 = set.Union set2
+
+    Assert.Equal(5, set3.Count)
+
+[<Fact>]
+let ``Intersect`` () =
+    let set = Set<int>()
+    set.Add 1
+    set.Add 3
+    set.Add 5
+    let set2 = Set<int>()
+    set2.Add 1
+    set2.Add 6
+    set2.Add 3
+    set2.Add 4
+
+    let set3 = set.Intersect set2
+
+    Assert.Equal(true, set3.Exists 1)
+    Assert.Equal(true, set3.Exists 3)
+    Assert.Equal(false, set3.Exists 5)
+    Assert.Equal(false, set3.Exists 6)
+    Assert.Equal(false, set3.Exists 4)
+    Assert.Equal(2, set3.Count)
+

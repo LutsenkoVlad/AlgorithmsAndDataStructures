@@ -24,6 +24,23 @@ type Set<'T when 'T : equality> () =
             if not (this.Exists item)
             then this.Add item
 
+    member this.Union (set : Set<'T>) =
+        let mutable resultSet = Set<'T>()
+        for item in set do
+            if not (this.Exists item)
+            then resultSet.Add item
+        for item in _list do
+            resultSet.Add item
+        resultSet
+
+    member this.Intersect (set : Set<'T>) =
+        let mutable resultSet = new Set<'T>()
+        for item in set do
+            if this.Exists item
+            then resultSet.Add item
+        resultSet
+
+
     member this.Exists value = 
         List.contains value _list
 

@@ -1,7 +1,7 @@
-module Tests
+﻿module Tests
 
-open Sorts
 open Xunit
+open Algorithms
 
 [<Fact>]
 let ``Array should be sorted correctly`` () =

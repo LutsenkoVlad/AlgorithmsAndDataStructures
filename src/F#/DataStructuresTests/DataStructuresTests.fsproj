@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Tests.fs" />
+    <Compile Include="DoubleLinkedListTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BubbleSort\BubbleSort.fsproj" />
+    <ProjectReference Include="..\DataStructures\DataStructures.fsproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,7 @@
-module Tests
+﻿module Tests
 
-open System
 open Xunit
-open LinkedList
+open DataStructures
 
 [<Fact>]
 let ``Push_CountOfNumber_ShouldBeCountOfPushedNumbers`` () = 

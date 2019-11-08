@@ -1,4 +1,4 @@
-﻿module LinkedList
+﻿module DataStructures
 
 type Node<'a> =
     {
@@ -7,7 +7,7 @@ type Node<'a> =
         value        : 'a
     }
 
-type LinkedList<'a> =
+type DoubleLinkedList<'a> =
     {
         mutable head  : Node<'a> option
         mutable tail  : Node<'a> option

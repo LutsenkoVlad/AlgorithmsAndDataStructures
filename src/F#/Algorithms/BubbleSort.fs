@@ -1,4 +1,4 @@
-﻿namespace Sorts
+﻿namespace Algorithms
 
 type BubbleSort =
     static member Sort arr =
@@ -15,9 +15,9 @@ type BubbleSort =
             swapped <- iterate arr
         arr
         
-    static member private Swap (arr: 'a[]) left right =
+    static member private Swap (arr : 'a[]) left right =
         let temp = arr.[left]
-        arr.[left] <- arr.[right]
+        arr.[left]  <- arr.[right]
         arr.[right] <- temp
 
     static member RecSort arr =
@@ -28,7 +28,7 @@ type BubbleSort =
                     BubbleSort.Swap arr i (i+1)
                     swapped <- true
             match swapped with
-            | true -> loop arr
+            | true  -> loop arr
             | false -> arr
 
         loop arr

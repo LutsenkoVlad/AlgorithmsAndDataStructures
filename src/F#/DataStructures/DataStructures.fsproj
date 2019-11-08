@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Stack.fs" />
+    <Compile Include="Set.fs" />
+    <Compile Include="Queue.fs" />
     <Compile Include="DoubleLinkedList.fs" />
   </ItemGroup>
 

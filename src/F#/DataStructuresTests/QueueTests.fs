@@ -1,6 +1,5 @@
-module Tests
+﻿module QueueTests
 
-open System
 open Xunit
 open DataStructures
 
@@ -51,5 +50,5 @@ let ``queue support for in`` () =
 let ``Dequeue should throw exception if stack is empty`` () =
     let queue = Queue<string>()
 
-    Assert.Throws<Exception>(fun () -> 
+    Assert.Throws<System.Exception>(fun () -> 
         queue.Dequeue |> ignore)

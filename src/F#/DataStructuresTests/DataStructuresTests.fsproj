@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="StackTests.fs" />
+    <Compile Include="SetTests.fs" />
+    <Compile Include="QueueTests.fs" />
     <Compile Include="DoubleLinkedListTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

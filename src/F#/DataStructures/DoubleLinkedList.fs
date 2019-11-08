@@ -1,4 +1,6 @@
-﻿module DataStructures
+﻿namespace DataStructures
+
+module LinkedList =
 
 type Node<'a> =
     {

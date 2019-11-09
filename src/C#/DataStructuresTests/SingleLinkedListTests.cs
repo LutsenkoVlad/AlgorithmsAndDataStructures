@@ -1,4 +1,4 @@
-using LinkedList;
+using DataStructures;
 using System;
 using Xunit;
 
@@ -86,7 +86,7 @@ namespace SingleLinkedListUnitTests
         [InlineData(1, "123")]
         [InlineData(0)]
         public void ForEach_ShouldReturnAllValuesInList(
-            int expected, 
+            int expected,
             params string[] values)
         {
             var list = new SingleLinkedList<string>();

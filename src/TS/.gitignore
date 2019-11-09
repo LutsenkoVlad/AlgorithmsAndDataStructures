@@ -1,6 +1,5 @@
 .idea
 node_modules/
-.vscode
 .cache-loader/
 package-lock.json
 yarn.lock

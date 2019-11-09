@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace DataStructures
 {
     public class SingleLinkedList<T> : IEnumerable<T>
@@ -140,7 +142,7 @@ namespace DataStructures
         public LinkedNode(T value, LinkedNode<T> next)
         {
             Value = value;
-            Next = next;
+            Next  = next;
         }
 
         public LinkedNode(T value) : this(value, null) { }

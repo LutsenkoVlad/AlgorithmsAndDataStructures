@@ -1,4 +1,4 @@
-﻿module Tests
+﻿module BubbleTests
 
 open Xunit
 open Algorithms

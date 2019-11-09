@@ -27,7 +27,7 @@ describe("InsertionSort", () => {
         expect(array.length).toEqual(2);
     });
 
-    it("algorithm should sort correctly [0, 3]", () => {
+    it("algorithm should sort correctly [-20, -3, 20, 0, 15, -12312123, 1]", () => {
         let array = [-20, -3, 20, 0, 15, -12312123, 1];
 
         InsertionSort(array);

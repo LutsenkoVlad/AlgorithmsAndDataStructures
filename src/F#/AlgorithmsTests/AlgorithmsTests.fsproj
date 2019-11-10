@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="InsertionSortTests.fs" />
+    <Compile Include="SelectionSortTests.fs" />
     <Compile Include="BubbleSortTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

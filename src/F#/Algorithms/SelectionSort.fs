@@ -1,6 +1,6 @@
 ﻿namespace Algorithms
 
-type InsertionSort =
+type SelectionSort =
     static member Sort (arr : 'a[]) =
         let mutable minIndex = 0
         let mutable startFromIndex = 0
@@ -10,7 +10,7 @@ type InsertionSort =
                 if arr.[minIndex] > arr.[i] then
                     minIndex <- i
 
-            InsertionSort.Swap arr startFromIndex minIndex
+            SelectionSort.Swap arr startFromIndex minIndex
             startFromIndex <- startFromIndex + 1
 
     static member private Swap (arr : 'a[]) left right =

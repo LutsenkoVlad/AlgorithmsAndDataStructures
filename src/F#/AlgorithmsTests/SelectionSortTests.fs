@@ -1,4 +1,4 @@
-﻿module InsertionSortTests
+﻿module SelectionSortTests
 
 open Xunit
 open Algorithms

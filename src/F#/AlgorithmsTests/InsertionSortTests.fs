@@ -3,7 +3,7 @@
 open Xunit
 open Algorithms
 
-[<Theory>]
+[<Fact>]
 let ``Array should be sorted correctly [|3; 7; 4; 4; 6; 5; 8|]`` () =
     let arr = [| 3; 7; 4; 4; 6; 5; 8 |]
 
